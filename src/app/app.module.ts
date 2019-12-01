@@ -8,16 +8,18 @@ import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {InventoryListComponent} from './inventory-list/inventory-list.component';
-import {MatButtonModule, MatFormFieldModule, MatInputModule, MatListModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatListModule, MatToolbarModule} from '@angular/material';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import { LoginComponent } from './login/login.component';
 import {AuthService} from './auth/auth.service';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InventoryListComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,9 @@ import {AuthService} from './auth/auth.service';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatListModule
+    MatListModule,
+    MatToolbarModule,
+    MatCardModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

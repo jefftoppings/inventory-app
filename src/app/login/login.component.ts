@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../auth/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,11 +9,15 @@ import {AuthService} from '../auth/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public auth: AuthService) { }
+  constructor(private auth: AuthService, private router: Router) {
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
-  amILogIn() {
-    console.log(this.auth.isLoggedIn());
+  loginWithGoogle() {
+    this.auth.signInWithGoogle().then(() => {
+      this.router.navigateByUrl('/home');
+    });
   }
 }
