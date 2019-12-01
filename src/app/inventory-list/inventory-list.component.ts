@@ -13,7 +13,8 @@ export class InventoryListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.db.list('/projectName/firstProject/items').valueChanges().subscribe(items => this.items = items);
+    this.db.list('/projectName/firstProject/items').valueChanges()
+      .subscribe((items) => this.items = items);
   }
 
   addNewItem(item: string) {
