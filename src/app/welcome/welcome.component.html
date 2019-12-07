@@ -1,0 +1,13 @@
+<div *ngIf="user$ | async as user" class="welcome-container">
+  <mat-card>
+    <mat-card-title>Welcome!</mat-card-title>
+    <mat-card-subtitle>Logged in as: {{user.displayName}}</mat-card-subtitle>
+    <mat-card-content>
+      <span class="sub-subtitle">What would you like to do?</span>
+      <mat-nav-list>
+        <a class="list-item">View my Inventory Lists</a>
+        <a class="list-item">Manage my Inventory Lists</a>
+      </mat-nav-list>
+    </mat-card-content>
+  </mat-card>
+</div>

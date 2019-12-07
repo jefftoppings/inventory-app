@@ -1,0 +1,26 @@
+.welcome-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  mat-card {
+    margin: 8px;
+    max-width: 400px;
+  }
+
+  .sub-subtitle {
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  mat-nav-list {
+    margin-top: 10px;
+    .list-item {
+      display: block;
+      cursor: pointer;
+      margin-bottom: 16px;
+    }
+  }
+}
+
+

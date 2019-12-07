@@ -11,6 +11,6 @@
 </div>
 <div class="home-container" *ngIf="isLoggedIn$ | async">
   <div class="content-container">
-    <h1>home works!</h1>
+    <app-welcome [user$]="user$"></app-welcome>
   </div>
 </div>

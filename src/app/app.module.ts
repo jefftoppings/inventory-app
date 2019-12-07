@@ -21,6 +21,7 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AuthService} from './auth/auth.service';
 import {HomeComponent} from './home/home.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     InventoryListComponent,
     HomeComponent,
     SidenavComponent,
+    WelcomeComponent,
   ],
   imports: [
     BrowserModule,

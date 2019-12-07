@@ -5,18 +5,32 @@ import {from, Observable} from 'rxjs';
 import * as firebase from 'firebase/app';
 import {map, tap} from 'rxjs/operators';
 
+export interface User {
+  email: string;
+  displayName: string;
+  photoUrl: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private readonly user$: Observable<firebase.User>;
+  private readonly userDetails$: Observable<firebase.User>;
 
   constructor(private firebaseAuth: AngularFireAuth, private router: Router) {
-    this.user$ = firebaseAuth.authState;
+    this.userDetails$ = firebaseAuth.authState;
   }
 
-  get user(): Observable<firebase.User> {
-    return this.user$;
+  get user$(): Observable<User> {
+    return this.userDetails$.pipe(
+      map(userDetails => {
+        return {
+          email: userDetails.email,
+          displayName: userDetails.displayName,
+          photoUrl: userDetails.photoURL
+        } as User;
+      })
+    );
   }
 
   get loggedIn$(): Observable<boolean> {
