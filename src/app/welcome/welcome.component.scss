@@ -8,19 +8,19 @@
     max-width: 400px;
   }
 
-  .sub-subtitle {
-    font-weight: bold;
-    font-size: 16px;
-  }
+  .content-container {
+    .sub-subtitle {
+      font-weight: bold;
+      font-size: 16px;
+    }
 
-  mat-nav-list {
-    margin-top: 10px;
-    .list-item {
-      display: block;
-      cursor: pointer;
-      margin-bottom: 16px;
+    .view-lists-button {
+      background: #4caf50;
+      color: white;
+      margin-top: 16px;
     }
   }
+
 }
 
 
