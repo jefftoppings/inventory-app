@@ -1,0 +1,16 @@
+.home-container {
+  text-align: center;
+  .content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    mat-card {
+      margin: 8px;
+      max-width: 400px;
+    }
+    .sign-in-button {
+      background: #4caf50;
+      color: white;
+    }
+  }
+}
