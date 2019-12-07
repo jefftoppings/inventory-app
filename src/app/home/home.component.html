@@ -1,1 +1,7 @@
-<h1>home works!</h1>
+<div *ngIf="!auth.isLoggedIn()">
+  <app-login></app-login>
+</div>
+<div *ngIf="auth.isLoggedIn()">
+  <button mat-button (click)="auth.logout()">Logout</button>
+  <h1>home works!</h1>
+</div>
