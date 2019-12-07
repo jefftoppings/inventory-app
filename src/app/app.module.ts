@@ -10,7 +10,6 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {InventoryListComponent} from './inventory-list/inventory-list.component';
 import {MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatListModule, MatToolbarModule} from '@angular/material';
 import {AngularFireAuthModule} from '@angular/fire/auth';
-import {LoginComponent} from './login/login.component';
 import {AuthService} from './auth/auth.service';
 import {HomeComponent} from './home/home.component';
 
@@ -18,7 +17,6 @@ import {HomeComponent} from './home/home.component';
   declarations: [
     AppComponent,
     InventoryListComponent,
-    LoginComponent,
     HomeComponent,
   ],
   imports: [

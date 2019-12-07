@@ -1,37 +1,39 @@
-import {Injectable, OnDestroy} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth';
 import {Router} from '@angular/router';
-import {Observable, Subscription} from 'rxjs';
+import {from, Observable} from 'rxjs';
 import * as firebase from 'firebase/app';
+import {map, tap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService implements OnDestroy {
-  private user$: Observable<firebase.User>;
-  private userDetails: firebase.User;
-  private subscriptions: Subscription[] = [];
+export class AuthService {
+  private readonly user$: Observable<firebase.User>;
 
   constructor(private firebaseAuth: AngularFireAuth, private router: Router) {
     this.user$ = firebaseAuth.authState;
-    this.subscriptions.push(this.user$.subscribe(user => this.userDetails = user));
   }
 
-  signInWithGoogle() {
-    return this.firebaseAuth.auth.signInWithPopup(
-      new firebase.auth.GoogleAuthProvider()
+  get user(): Observable<firebase.User> {
+    return this.user$;
+  }
+
+  get loggedIn$(): Observable<boolean> {
+    return this.firebaseAuth.authState.pipe(
+      map(user => {
+        return !!user;
+      })
     );
   }
 
-  isLoggedIn(): boolean {
-    return !!this.userDetails;
+  signInWithGoogle(): Observable<any> {
+    return from(this.firebaseAuth.auth.signInWithPopup(
+      new firebase.auth.GoogleAuthProvider()
+    ));
   }
 
   logout() {
-    this.firebaseAuth.auth.signOut().then(() => this.router.navigate(['/']));
-  }
-
-  ngOnDestroy(): void {
-    this.subscriptions.forEach(sub => sub.unsubscribe());
+    from(this.firebaseAuth.auth.signOut()).pipe(tap(() => this.router.navigate(['/'])));
   }
 }

@@ -1,7 +1,12 @@
-<div *ngIf="!auth.isLoggedIn()">
-  <app-login></app-login>
+<div *ngIf="!(isLoggedIn$ | async)">
+  <div class="login-container">
+    <div class="content-container">
+      <h1>Login</h1>
+      <button (click)="signIn()" mat-button class="sign-in-button">Sign in with Google</button>
+    </div>
+  </div>
 </div>
-<div *ngIf="auth.isLoggedIn()">
+<div *ngIf="isLoggedIn$ | async">
   <button mat-button (click)="auth.logout()">Logout</button>
   <h1>home works!</h1>
 </div>
