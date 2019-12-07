@@ -24,11 +24,14 @@ export class AuthService {
   get user$(): Observable<User> {
     return this.userDetails$.pipe(
       map(userDetails => {
-        return {
-          email: userDetails.email,
-          displayName: userDetails.displayName,
-          photoUrl: userDetails.photoURL
-        } as User;
+        if (userDetails) {
+          return {
+            email: userDetails.email,
+            displayName: userDetails.displayName,
+            photoUrl: userDetails.photoURL
+          } as User;
+        }
+        return null;
       })
     );
   }

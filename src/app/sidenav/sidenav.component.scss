@@ -8,4 +8,7 @@
 }
 mat-sidenav {
   min-width: 100px;
+  .logout {
+    cursor: pointer;
+  }
 }

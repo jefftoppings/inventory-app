@@ -9,9 +9,7 @@
 
 <mat-sidenav-container>
   <mat-sidenav #sidenav>
-    <mat-nav-list class="nav-list">
-      <a (click)="auth.logout()">Logout</a>
-    </mat-nav-list>
+    <div class="logout" (click)="auth.logout()">Logout</div>
   </mat-sidenav>
 
   <mat-sidenav-content>
