@@ -1,12 +1,16 @@
-<div *ngIf="!(isLoggedIn$ | async)">
-  <div class="login-container">
-    <div class="content-container">
-      <h1>Login</h1>
-      <button (click)="signIn()" mat-button class="sign-in-button">Sign in with Google</button>
-    </div>
+<div class="home-container" *ngIf="!(isLoggedIn$ | async)">
+  <div class="content-container">
+    <mat-card>
+      <mat-card-title>Login</mat-card-title>
+      <mat-card-content>Click the button below to sign in with your Google Account</mat-card-content>
+      <mat-card-actions>
+        <button (click)="signIn()" mat-button class="sign-in-button">Sign in</button>
+      </mat-card-actions>
+    </mat-card>
   </div>
 </div>
-<div *ngIf="isLoggedIn$ | async">
-  <button mat-button (click)="auth.logout()">Logout</button>
-  <h1>home works!</h1>
+<div class="home-container" *ngIf="isLoggedIn$ | async">
+  <div class="content-container">
+    <h1>home works!</h1>
+  </div>
 </div>
