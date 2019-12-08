@@ -5,12 +5,23 @@
 
   .project-list-item {
     display: block;
+
     .project-list-item-title {
       font-size: 16px;
     }
+
     .project-list-item-date {
       font-size: 14px;
       color: rgba(0, 0, 0, 0.54);
+    }
+  }
+
+  mat-card-actions {
+    text-align: center;
+
+    .create-new-button {
+      background: #4caf50;
+      color: white;
     }
   }
 

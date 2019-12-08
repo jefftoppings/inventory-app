@@ -4,7 +4,7 @@
     <mat-card-subtitle>Here is a list of your current lists</mat-card-subtitle>
     <mat-card-content>
       <div class="content-container">
-        <mat-list>
+        <mat-list *ngIf="projects$ | async">
           <mat-list-item *ngFor="let project of (projects$ | async)">
             <div class="project-list-item">
               <div class="project-list-item-title">{{project.title}}</div>
@@ -13,7 +13,15 @@
             <mat-divider></mat-divider>
           </mat-list-item>
         </mat-list>
+        <div *ngIf="!(projects$ | async)">
+          Could not retrieve your lists. You may not have any, or it is taking a little while to load.
+        </div>
       </div>
     </mat-card-content>
+    <mat-card-actions>
+      <a [routerLink]="'/create-list'">
+        <button mat-button class="create-new-button">Create New List</button>
+      </a>
+    </mat-card-actions>
   </mat-card>
 </div>

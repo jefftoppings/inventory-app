@@ -23,6 +23,7 @@ import {SidenavComponent} from './sidenav/sidenav.component';
 import {WelcomeComponent} from './welcome/welcome.component';
 import {ManageListsComponent} from './inventory/manage-lists/manage-lists.component';
 import {ViewListComponent} from './inventory/view-list/view-list.component';
+import {CreateListComponent} from './inventory/create-list/create-list.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import {ViewListComponent} from './inventory/view-list/view-list.component';
     WelcomeComponent,
     ManageListsComponent,
     ViewListComponent,
+    CreateListComponent,
   ],
   imports: [
     BrowserModule,
