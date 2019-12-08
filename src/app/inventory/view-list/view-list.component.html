@@ -1,1 +1,27 @@
-<p>view-list works!</p>
+<div *ngIf="user$ | async as user" class="project-container">
+  <ng-container *ngIf="project$ | async as project; else projectDoesNotExist">
+    <mat-card>
+      <mat-card-title>{{project.title}}</mat-card-title>
+      <mat-card-subtitle>
+        <b>Created:</b> {{project.creationDate.toDateString()}}<br>
+        <b>Last Modified:</b> {{project.lastModified.toDateString()}}
+      </mat-card-subtitle>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item *ngFor="let item of project.items">
+            <div class="item-container">
+              <div class="item-title">{{item}}</div>
+              <div class="delete-icon">
+                <mat-icon (click)="deleteItem(item)">delete_outline</mat-icon>
+              </div>
+            </div>
+            <mat-divider></mat-divider>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </ng-container>
+</div>
+<ng-template #projectDoesNotExist>
+  Project does not exist.
+</ng-template>

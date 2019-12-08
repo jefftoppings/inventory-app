@@ -37,6 +37,15 @@ export class DataService implements OnDestroy {
           );
         }
         return of([]);
+      }),
+      map(projects => {
+        return projects.map(p => {
+          return {
+            ...p,
+            creationDate: new Date(p.creationDate),
+            lastModified: new Date(p.lastModified)
+          };
+        });
       })
     );
   }
@@ -61,6 +70,15 @@ export class DataService implements OnDestroy {
     return this.user$.pipe(
       map((user: User) => {
         return this.db.list(`/inventory/users/${user.id}/projects/`).remove(project.title);
+      })
+    );
+  }
+
+  getProject(title: string): Observable<InventoryProject> {
+    return this.projects$.pipe(
+      map(projects => {
+        const project: InventoryProject[] = projects.filter(p => p.title === title);
+        return project[0];
       })
     );
   }
