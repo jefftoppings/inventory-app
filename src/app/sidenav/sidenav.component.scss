@@ -9,7 +9,12 @@
 }
 mat-sidenav {
   min-width: 100px;
-  .logout {
-    cursor: pointer;
-  }
+}
+
+.menu-item-link {
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+  display: block;
+  margin: 10px 0 10px 0;
 }

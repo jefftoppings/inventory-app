@@ -9,7 +9,9 @@
 
 <mat-sidenav-container>
   <mat-sidenav #sidenav>
-    <div class="logout" (click)="auth.logout()">Logout</div>
+    <mat-nav-list>
+      <a [routerLink]="'home'" (click)="auth.logout(); sidenav.close()" class="menu-item-link">Logout</a>
+    </mat-nav-list>
   </mat-sidenav>
 
   <mat-sidenav-content>
