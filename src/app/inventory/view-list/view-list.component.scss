@@ -1,0 +1,56 @@
+.project-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  mat-card {
+    margin: 8px;
+    max-width: 400px;
+
+    mat-card-actions {
+      text-align: center;
+
+      .create-new-button {
+        background: #4caf50;
+        color: white;
+      }
+    }
+
+    mat-list-item {
+      margin: 10px 0 10px;
+
+      .item-container {
+        width: 100%;
+        display: flex;
+
+        .item-title {
+          font-size: 16px;
+        }
+
+        .delete-icon {
+          width: 100%;
+          mat-icon {
+            float: right;
+            cursor: pointer;
+            color: rgba(0, 0, 0, 0.54);
+          }
+        }
+      }
+    }
+
+    .new-item {
+      margin-top: 30px;
+      display: flex;
+      .new-item-button {
+        background: #4caf50;
+        color: white;
+        height: 36px;
+        margin-left: 4px;
+      }
+    }
+  }
+}
+
+.does-not-exist {
+  margin-top: 20px;
+}

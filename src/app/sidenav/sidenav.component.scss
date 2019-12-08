@@ -5,7 +5,16 @@
 .title-container {
   margin: 0 auto;
   color: white;
+  cursor: pointer;
 }
 mat-sidenav {
   min-width: 100px;
+}
+
+.menu-item-link {
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+  display: block;
+  margin: 10px 0 10px 0;
 }

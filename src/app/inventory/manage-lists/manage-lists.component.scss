@@ -1,0 +1,57 @@
+.manage-lists-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  mat-list-item {
+    margin: 10px 0 10px;
+
+    .item-container {
+      width: 100%;
+      a {
+        text-decoration: None;
+        color: black;
+        cursor: pointer;
+      }
+
+      .project-list-item-title {
+        font-size: 16px;
+        display: block;
+      }
+
+      .project-list-item-subtitle {
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.54);
+        display: block;
+
+        .items-line {
+          display: inline;
+        }
+
+        mat-icon {
+          float: right;
+          position: relative;
+          top: -13px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  mat-card {
+    margin: 8px;
+    max-width: 400px;
+
+    mat-card-actions {
+      text-align: center;
+
+      .create-new-button {
+        background: #4caf50;
+        color: white;
+      }
+    }
+  }
+
+}
+
+

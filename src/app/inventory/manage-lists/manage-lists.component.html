@@ -1,0 +1,32 @@
+<div *ngIf="user$ | async as user" class="manage-lists-container">
+  <mat-card>
+    <mat-card-title>{{user.displayName}}'s Lists</mat-card-title>
+    <mat-card-subtitle>Click on a list to see more details!</mat-card-subtitle>
+    <mat-card-content>
+      <div class="content-container">
+        <mat-list *ngIf="projects$ | async">
+          <mat-list-item *ngFor="let project of (projects$ | async)">
+            <div class="item-container">
+              <a [routerLink]="'/view-list/' + project.title">
+                <div class="project-list-item-title">{{project.title ? project.title : 'Unnamed Project'}}</div>
+              </a>
+              <div class="project-list-item-subtitle">
+                <div class="items-line">Items: {{project.items ? project.items.length : 0}}</div>
+                <mat-icon (click)="deleteProject(project)">delete_outline</mat-icon>
+              </div>
+            </div>
+            <mat-divider></mat-divider>
+          </mat-list-item>
+        </mat-list>
+        <div *ngIf="!(projects$ | async)">
+          Could not retrieve your lists. You may not have any, or it is taking a little while to load.
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <a [routerLink]="'/create-list'">
+        <button mat-button class="create-new-button">Create New List</button>
+      </a>
+    </mat-card-actions>
+  </mat-card>
+</div>

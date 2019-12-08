@@ -2,15 +2,15 @@
   <button mat-icon-button (click)="sidenav.toggle()">
     <mat-icon class="menu-icon">menu</mat-icon>
   </button>
-  <div class="title-container">
+  <div class="title-container" [routerLink]="'/home'">
     Jeff's Inventory Application
   </div>
 </mat-toolbar>
 
 <mat-sidenav-container>
   <mat-sidenav #sidenav>
-    <mat-nav-list class="nav-list">
-      <a (click)="auth.logout()">Logout</a>
+    <mat-nav-list>
+      <a [routerLink]="'home'" (click)="auth.logout(); sidenav.close()" class="menu-item-link">Logout</a>
     </mat-nav-list>
   </mat-sidenav>
 

@@ -1,0 +1,17 @@
+<div *ngIf="user$ | async as user" class="welcome-container">
+  <mat-card>
+    <mat-card-title>Welcome!</mat-card-title>
+    <mat-card-subtitle>Logged in as: {{user.displayName}}</mat-card-subtitle>
+    <mat-card-content>
+      <div class="content-container">
+        <div class="sub-subtitle">What would you like to do?</div>
+        <a [routerLink]="'/manage-list'" class="button-container">
+          <button class="view-lists-button" mat-button>View Lists</button>
+        </a>
+        <a [routerLink]="'/create-list'" class="button-container">
+          <button class="view-lists-button" mat-button>Create List</button>
+        </a>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

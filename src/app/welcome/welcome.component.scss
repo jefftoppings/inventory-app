@@ -1,0 +1,31 @@
+.welcome-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  mat-card {
+    margin: 8px;
+    max-width: 400px;
+  }
+
+  .content-container {
+    .sub-subtitle {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .button-container {
+      display: block;
+
+      .view-lists-button {
+        background: #4caf50;
+        color: white;
+        margin-top: 16px;
+      }
+    }
+
+  }
+
+}
+
+
