@@ -5,8 +5,11 @@
     <mat-card-content>
       <div class="content-container">
         <div class="sub-subtitle">What would you like to do?</div>
-        <a [routerLink]="'/manage-list'">
+        <a [routerLink]="'/manage-list'" class="button-container">
           <button class="view-lists-button" mat-button>View Lists</button>
+        </a>
+        <a [routerLink]="'/create-list'" class="button-container">
+          <button class="view-lists-button" mat-button>Create List</button>
         </a>
       </div>
     </mat-card-content>

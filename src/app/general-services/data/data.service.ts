@@ -24,8 +24,7 @@ export class DataService implements OnDestroy {
     this.projects$ = this.user$.pipe(
       switchMap(user => {
         if (user) {
-          // TODO user id to get projects here
-          return this.db.list<InventoryProject>(`/inventory/users/user1`).valueChanges().pipe(
+          return this.db.list<InventoryProject>(`/inventory/users/${user.id}`).valueChanges().pipe(
             map(data => {
               const inventoryProjects: InventoryProject[] = [];
               for (const key in data[0]) {
@@ -49,7 +48,11 @@ export class DataService implements OnDestroy {
   addNewList(listTitle: string): Observable<any> {
     return this.user$.pipe(
       map((user: User) => {
-        return this.db.list(`/inventory/users/${user.id}/projects/`).push({title: listTitle});
+        return this.db.list(`/inventory/users/${user.id}/projects/`).set(listTitle, {
+          title: listTitle,
+          creationDate: new Date().toString(),
+          lastModified: new Date().toString(),
+        });
       })
     );
   }

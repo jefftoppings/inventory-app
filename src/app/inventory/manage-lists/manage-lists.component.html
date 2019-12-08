@@ -7,8 +7,8 @@
         <mat-list *ngIf="projects$ | async">
           <mat-list-item *ngFor="let project of (projects$ | async)">
             <div class="project-list-item">
-              <div class="project-list-item-title">{{project.title}}</div>
-              <div class="project-list-item-date">Created on {{project.creationDate}}</div>
+              <div class="project-list-item-title">{{project.title ? project.title : 'Unnamed Project'}}</div>
+              <div class="project-list-item-subtitle">Items: {{project.items ? project.items.length : 0}}</div>
             </div>
             <mat-divider></mat-divider>
           </mat-list-item>

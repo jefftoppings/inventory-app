@@ -14,11 +14,16 @@
       font-size: 16px;
     }
 
-    .view-lists-button {
-      background: #4caf50;
-      color: white;
-      margin-top: 16px;
+    .button-container {
+      display: block;
+
+      .view-lists-button {
+        background: #4caf50;
+        color: white;
+        margin-top: 16px;
+      }
     }
+
   }
 
 }

@@ -13,7 +13,7 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatListModule, MatSidenavModule,
+  MatListModule, MatSidenavModule, MatSnackBarModule,
   MatToolbarModule
 } from '@angular/material';
 import {AngularFireAuthModule} from '@angular/fire/auth';
@@ -49,7 +49,8 @@ import {CreateListComponent} from './inventory/create-list/create-list.component
     MatToolbarModule,
     MatCardModule,
     MatIconModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatSnackBarModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
