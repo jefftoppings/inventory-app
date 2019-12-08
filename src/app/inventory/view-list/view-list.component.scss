@@ -37,8 +37,20 @@
         }
       }
     }
+
+    .new-item {
+      margin-top: 30px;
+      display: flex;
+      .new-item-button {
+        background: #4caf50;
+        color: white;
+        height: 36px;
+        margin-left: 4px;
+      }
+    }
   }
 }
 
-
-
+.does-not-exist {
+  margin-top: 20px;
+}

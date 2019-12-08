@@ -24,7 +24,7 @@ export class CreateListComponent implements OnInit, OnDestroy {
   createList(title: string) {
     this.subscriptions.push(
       this.data.addNewProject(title).subscribe(
-        () => this.router.navigateByUrl('/manage-list'),
+        () => this.router.navigateByUrl(`/view-list/${title}`),
         () => this.showErrorSnackbar()
       )
   );

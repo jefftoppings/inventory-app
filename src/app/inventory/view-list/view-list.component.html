@@ -7,21 +7,28 @@
         <b>Last Modified:</b> {{project.lastModified.toDateString()}}
       </mat-card-subtitle>
       <mat-card-content>
-        <mat-list>
-          <mat-list-item *ngFor="let item of project.items">
+        <mat-list *ngIf="items$ | async as items">
+          <mat-list-item *ngFor="let item of items">
             <div class="item-container">
               <div class="item-title">{{item}}</div>
               <div class="delete-icon">
-                <mat-icon (click)="deleteItem(item)">delete_outline</mat-icon>
+                <mat-icon (click)="deleteItem(project, item)">delete_outline</mat-icon>
               </div>
             </div>
             <mat-divider></mat-divider>
           </mat-list-item>
         </mat-list>
+        <div class="new-item">
+          <mat-form-field>
+            <mat-label>New Item</mat-label>
+            <input matInput #newItem/>
+          </mat-form-field>
+          <button mat-button class="new-item-button" (click)="addItem(project, newItem.value); newItem.value = ''">Add</button>
+        </div>
       </mat-card-content>
     </mat-card>
   </ng-container>
 </div>
 <ng-template #projectDoesNotExist>
-  Project does not exist.
+  <h3 class="does-not-exist">Project does not exist</h3>
 </ng-template>

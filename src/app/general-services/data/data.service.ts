@@ -2,7 +2,7 @@ import {Injectable, OnDestroy} from '@angular/core';
 import {AngularFireDatabase} from '@angular/fire/database';
 import {Observable, of, Subscription} from 'rxjs';
 import {AuthService, User} from '../auth/auth.service';
-import {map, switchMap} from 'rxjs/operators';
+import {map, switchMap, tap} from 'rxjs/operators';
 
 export interface InventoryProject {
   title: string;
@@ -81,6 +81,28 @@ export class DataService implements OnDestroy {
         return project[0];
       })
     );
+  }
+
+  addItem(project: InventoryProject, newItem: string): Observable<any> {
+    return this.user$.pipe(
+      map((user: User) => {
+        this.updateLastModified(`/inventory/users/${user.id}/projects/${project.title}`);
+        return this.db.list(`/inventory/users/${user.id}/projects/${project.title}/items`).push(newItem);
+      }),
+    );
+  }
+
+  deleteItem(project: InventoryProject, itemKey: string): Observable<any> {
+    return this.user$.pipe(
+      map((user: User) => {
+        this.updateLastModified(`/inventory/users/${user.id}/projects/${project.title}`);
+        return this.db.list(`/inventory/users/${user.id}/projects/${project.title}/items`).remove(itemKey);
+      })
+    );
+  }
+
+  private updateLastModified(path: string) {
+    this.db.list(path).set('lastModified', new Date().toString()).then();
   }
 
   ngOnDestroy(): void {
