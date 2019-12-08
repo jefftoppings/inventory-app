@@ -1,1 +1,19 @@
-<p>manage-lists works!</p>
+<div *ngIf="user$ | async as user" class="manage-lists-container">
+  <mat-card>
+    <mat-card-title>{{user.displayName}}'s Lists</mat-card-title>
+    <mat-card-subtitle>Here is a list of your current lists</mat-card-subtitle>
+    <mat-card-content>
+      <div class="content-container">
+        <mat-list>
+          <mat-list-item *ngFor="let project of (projects$ | async)">
+            <div class="project-list-item">
+              <div class="project-list-item-title">{{project.title}}</div>
+              <div class="project-list-item-date">Created on {{project.creationDate}}</div>
+            </div>
+            <mat-divider></mat-divider>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

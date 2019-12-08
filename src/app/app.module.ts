@@ -7,7 +7,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
-import {InventoryListComponent} from './inventory-list/inventory-list.component';
 import {
   MatButtonModule,
   MatCardModule,
@@ -20,15 +19,14 @@ import {
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AuthService} from './general-services/auth/auth.service';
 import {HomeComponent} from './home/home.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
-import { WelcomeComponent } from './welcome/welcome.component';
-import { ManageListsComponent } from './inventory/manage-lists/manage-lists.component';
-import { ViewListComponent } from './inventory/view-list/view-list.component';
+import {SidenavComponent} from './sidenav/sidenav.component';
+import {WelcomeComponent} from './welcome/welcome.component';
+import {ManageListsComponent} from './inventory/manage-lists/manage-lists.component';
+import {ViewListComponent} from './inventory/view-list/view-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InventoryListComponent,
     HomeComponent,
     SidenavComponent,
     WelcomeComponent,

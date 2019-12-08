@@ -1,0 +1,19 @@
+.manage-lists-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .project-list-item {
+    display: block;
+    .project-list-item-title {
+      font-size: 16px;
+    }
+    .project-list-item-date {
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.54);
+    }
+  }
+
+}
+
+
