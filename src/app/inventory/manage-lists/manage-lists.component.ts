@@ -24,6 +24,10 @@ export class ManageListsComponent implements OnInit, OnDestroy {
     );
   }
 
+  deleteProject(project: InventoryProject) {
+    this.data.deleteProject(project);
+  }
+
   ngOnDestroy(): void {
     this.subscriptions.forEach(sub => sub.unsubscribe());
   }

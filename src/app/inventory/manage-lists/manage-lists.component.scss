@@ -3,17 +3,33 @@
   justify-content: center;
   align-items: center;
 
+  mat-list-item {
+    margin: 10px 0 10px;
 
-  .project-list-item {
-    display: block;
+    .item-container {
+      width: 100%;
 
-    .project-list-item-title {
-      font-size: 16px;
-    }
+      .project-list-item-title {
+        font-size: 16px;
+        display: block;
+      }
 
-    .project-list-item-subtitle {
-      font-size: 14px;
-      color: rgba(0, 0, 0, 0.54);
+      .project-list-item-subtitle {
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.54);
+        display: block;
+
+        .items-line {
+          display: inline;
+        }
+
+        mat-icon {
+          float: right;
+          position: relative;
+          top: -13px;
+          cursor: pointer;
+        }
+      }
     }
   }
 

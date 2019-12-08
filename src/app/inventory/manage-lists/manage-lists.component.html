@@ -1,14 +1,17 @@
 <div *ngIf="user$ | async as user" class="manage-lists-container">
   <mat-card>
     <mat-card-title>{{user.displayName}}'s Lists</mat-card-title>
-    <mat-card-subtitle>Here is a list of your current lists</mat-card-subtitle>
+    <mat-card-subtitle>Click on a list to see more details!</mat-card-subtitle>
     <mat-card-content>
       <div class="content-container">
         <mat-list *ngIf="projects$ | async">
           <mat-list-item *ngFor="let project of (projects$ | async)">
-            <div class="project-list-item">
+            <div class="item-container">
               <div class="project-list-item-title">{{project.title ? project.title : 'Unnamed Project'}}</div>
-              <div class="project-list-item-subtitle">Items: {{project.items ? project.items.length : 0}}</div>
+              <div class="project-list-item-subtitle">
+                <div class="items-line">Items: {{project.items ? project.items.length : 0}}</div>
+                <mat-icon (click)="deleteProject(project)">delete_outline</mat-icon>
+              </div>
             </div>
             <mat-divider></mat-divider>
           </mat-list-item>

@@ -57,6 +57,11 @@ export class DataService implements OnDestroy {
     );
   }
 
+  deleteProject(project: InventoryProject) {
+    // TODO implement
+    console.log('delete', project.title);
+  }
+
   ngOnDestroy(): void {
     this.subscriptions.forEach(sub => sub.unsubscribe());
   }
