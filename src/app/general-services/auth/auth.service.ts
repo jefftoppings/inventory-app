@@ -9,6 +9,7 @@ export interface User {
   email: string;
   displayName: string;
   photoUrl: string;
+  id: string;
 }
 
 @Injectable({
@@ -28,7 +29,8 @@ export class AuthService {
           return {
             email: userDetails.email,
             displayName: userDetails.displayName,
-            photoUrl: userDetails.photoURL
+            photoUrl: userDetails.photoURL,
+            id: userDetails.email.replace('.', ',')
           } as User;
         }
         return null;

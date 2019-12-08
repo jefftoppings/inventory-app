@@ -1,0 +1,26 @@
+.create-list-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  mat-card {
+    margin: 8px;
+    max-width: 400px;
+
+    mat-card-actions {
+      text-align: center;
+
+      .create-button {
+        background: #4caf50;
+        color: white;
+      }
+
+      .create-button-disabled {
+        background: lightgray;
+        color: darkgray;
+      }
+    }
+  }
+}
+
+
