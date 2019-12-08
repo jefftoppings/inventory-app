@@ -7,7 +7,9 @@
         <mat-list *ngIf="projects$ | async">
           <mat-list-item *ngFor="let project of (projects$ | async)">
             <div class="item-container">
-              <div class="project-list-item-title">{{project.title ? project.title : 'Unnamed Project'}}</div>
+              <a [routerLink]="'/view-list/' + project.title">
+                <div class="project-list-item-title">{{project.title ? project.title : 'Unnamed Project'}}</div>
+              </a>
               <div class="project-list-item-subtitle">
                 <div class="items-line">Items: {{project.items ? project.items.length : 0}}</div>
                 <mat-icon (click)="deleteProject(project)">delete_outline</mat-icon>

@@ -8,6 +8,11 @@
 
     .item-container {
       width: 100%;
+      a {
+        text-decoration: None;
+        color: black;
+        cursor: pointer;
+      }
 
       .project-list-item-title {
         font-size: 16px;
